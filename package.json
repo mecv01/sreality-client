@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=client:* nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest ./test/*.test.js",
     "eslint": "./node_modules/.bin/eslint --fix ./src ./config ./index.js"
   },
   "author": "Milton Carranza",
@@ -17,6 +17,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.5.0",
     "nodemon": "^1.18.10"
   },
   "dependencies": {

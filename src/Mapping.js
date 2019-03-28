@@ -29,4 +29,6 @@ const mapProperties = properties => map(mapProperty, properties);
 
 module.exports = {
   mapProperties,
+  mapImage,
+  mapImages,
 };
