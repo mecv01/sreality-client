@@ -8,7 +8,7 @@ const mapImages = images => map(mapImage, images);
 
 const mapProperty = (property) => {
   const id = path(mapping.propertyId, property);
-  const toReturn = {
+  return {
     propertyId: id,
     description: path(mapping.description, property),
     coordinates: {
@@ -20,9 +20,8 @@ const mapProperty = (property) => {
     seller: path(mapping.seller, property),
     price: path(mapping.price, property),
     images: mapImages(path(mapping.images, property)),
-    webLink: `https://www.sreality.cz/detail/1/2/3/4/${id}`
+    webLink: `https://www.sreality.cz/detail/1/2/3/4/${id}`,
   };
-  return toReturn;
 };
 
 const mapProperties = properties => map(mapProperty, properties);

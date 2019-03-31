@@ -4,7 +4,7 @@
   "description": "API Client for sreality.cz",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=client:* nodemon index.js",
+    "start": "VERBOSE=true  DEBUG=client:* nodemon index.js",
     "test": "jest ./test/*.test.js",
     "eslint": "./node_modules/.bin/eslint --fix ./src ./config ./index.js"
   },

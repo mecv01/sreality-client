@@ -4,6 +4,7 @@ module.exports = {
       baseURL: 'https://www.sreality.cz/api/cs/v2/',
       port: 443,
       method: 'get',
+      timeout: 30000,
     },
   },
   mapping: {
@@ -16,6 +17,6 @@ module.exports = {
     seller: ['_embedded', 'company', 'name'],
     price: ['price'],
     images: ['_links', 'images'],
-    image: ['href']
+    image: ['href'],
   },
 };

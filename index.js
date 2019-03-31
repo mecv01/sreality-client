@@ -1,18 +1,12 @@
+const {VERBOSE} = process.env;
 const debug = require('debug')('client:index');
-const { fetchHouses, fetchLocality, fetchProperties } = require('./src/SrealityClient');
+const { fetchHouses } = require('./src/SrealityClient');
 const { mapProperties } = require('./src/Mapping');
 
 fetchHouses()
-  // .then(data => debug(data.result_size))
-  .then(data => mapProperties(data['_embedded'].estates))
-  // .then(data => debug(JSON.stringify(data)))
-  .then(data => debug(data))
-  .catch(err => debug(err.stack));
-  // .then(data => debug(data.result_size));
-
-// fetchLocality('zdiby')
-//   .then(data => debug(data));
-
-
-// fetchProperties()
-//   .then(data => debug(data));
+  .then((data) => {
+    if (VERBOSE) {
+      debug(data.result_size);
+    }
+    return mapProperties(data['_embedded'].estates);
+  }).then(debug);

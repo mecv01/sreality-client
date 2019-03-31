@@ -20,21 +20,24 @@ const PROPERTY_TYPES = {
   },
 };
 
-const fetch = async (path, qs) => {
-  const requestOptions = config.baseOptions;
-  requestOptions.url = url.format(
-    {
+const fetch = async (path, querystring) => {
+  const requestOptions = {
+    ...config.baseOptions,
+    url: url.format({
       pathname: path,
-      query: qs,
-    },
-  );
+      query: querystring,
+    })
+  };
 
   debug(requestOptions);    
 
-  const res = await axios(requestOptions);
-  const data = await res.data;
-
-  return data;
+  try {
+    const response = await axios(requestOptions);
+    const data = await response.data;
+    return data;
+  } catch (err) {
+    throw new Error('The request failed to resolve.')
+  }
 };
 
 const fetchProperties = async (page = 1, pageSize = 50, propertyType, regionType = 'municipality', regionId = 3468) => {
