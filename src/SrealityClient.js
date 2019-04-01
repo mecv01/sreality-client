@@ -3,7 +3,7 @@ const axios = require('axios');
 const { mergeLeft } = require('ramda');
 const debug = require('debug')('api-client:SrealityClient');
 const config = require('../config').sreality;
-const { errorAndDebug } = require('./utils/ErroHandler');
+const { errorAndDebug } = require('./utils/ErrorHandler');
 
 const PROPERTY_TYPES = {
   ALL: {},
@@ -44,7 +44,7 @@ const fetch = async (path, querystring) => {
 const fetchProperties = async (page = 1, pageSize = 50, propertyType, regionType = 'municipality', regionId = 3468) => {
   let query = {
     tms: (new Date()).getTime(),
-    per_page: pageSize,
+    per_page: pageSize - 1,
     page,
   };
 
@@ -78,18 +78,18 @@ const fetchLocality = async (locality) => {
  */
 
 const fetchHousesFromAPI = async (page, pageSize, regionType, regionId) => {
-  const houseType = PROPERTY_TYPES.HOUSE;
-  return fetchProperties(page, pageSize, houseType, regionType, regionId);
+  const type = PROPERTY_TYPES.HOUSE;
+  return fetchProperties(page, pageSize, type, regionType, regionId);
 };
 
 const fetchFlatsFromAPI = async (page, pageSize, regionType, regionId) => {
-  const houseType = PROPERTY_TYPES.FLAT;
-  return fetchProperties(page, pageSize, houseType, regionType, regionId);
+  const type = PROPERTY_TYPES.FLAT;
+  return fetchProperties(page, pageSize, type, regionType, regionId);
 };
 
 const fetchParcelsFromAPI = async (page, pageSize, regionType, regionId) => {
-  const houseType = PROPERTY_TYPES.PARCEL;
-  return fetchProperties(page, pageSize, houseType, regionType, regionId);
+  const type = PROPERTY_TYPES.PARCEL;
+  return fetchProperties(page, pageSize, type, regionType, regionId);
 };
 
 module.exports = {

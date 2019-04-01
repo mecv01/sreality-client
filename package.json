@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "VERBOSE=true  DEBUG=api-client:* nodemon index.js",
+    "build": "rm -rf build && mkdir build && cp -r ./config ./build && cp -r ./src ./build && cp index.js package.json ./build && git log -n 1 >> ./build/deployInfo.txt",
     "test": "npm run test:unit && npm run test:end-to-end",
     "test:unit": "jest ./test/unit/*.test.js",
     "test:end-to-end": "jest ./test/end-to-end/*.test.js",
     "test:coverage": "jest --coverage ./test/unit/*.test.js ./test/end-to-end/*.test.js",
-    "eslint": "./node_modules/.bin/eslint --fix ./src ./config ./index.js"
+    "eslint": "./node_modules/.bin/eslint --fix ./src ./config ./test ./index.js"
   },
   "author": "Milton Carranza <mecv01@gmail.com>",
   "contributors": [
@@ -36,18 +37,20 @@
   "repository": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
     "jest": "^24.5.0",
     "jest-json-schema": "^2.0.2",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "debug": "^4.1.1",
     "ramda": "^0.26.1"
   }

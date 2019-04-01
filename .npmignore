@@ -1,0 +1,12 @@
+config/
+src/
+test/
+node_modules/
+.babelrc
+.eslintrc
+.gitignore
+.npmignore
+jest.config.js
+jest.setup.js
+package-lock.json
+README.md
