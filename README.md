@@ -45,3 +45,14 @@ npm run test:coverage
 ```
 npm run eslint
 ```
+
+## Disclaimer
+
+This is not an official API. I am not affiliated with Sreality.cz in any way, and am not responsible for any damage that could be done with it.
+
+I have only implemented very few functions that I need for a project.
+
+I'd be happy to give up this library for an official and supported library.
+
+I have built this library to retrieve properties from the REST API.
+
