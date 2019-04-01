@@ -1,4 +1,4 @@
-const { mapImage, mapImages } = require('../src/Mapping');
+const { mapImage, mapImages } = require('../../src/utils/Mapping');
 
 test('extract link from an object with a given structure', () => {
   const obj = {

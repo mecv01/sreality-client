@@ -1,8 +1,9 @@
 const url = require('url');
 const axios = require('axios');
 const { mergeLeft } = require('ramda');
-const debug = require('debug')('client:SrealityClient');
-const config = require('./../config').sreality;
+const debug = require('debug')('api-client:SrealityClient');
+const config = require('../config').sreality;
+const { errorAndDebug } = require('./utils/ErroHandler');
 
 const PROPERTY_TYPES = {
   ALL: {},
@@ -26,17 +27,17 @@ const fetch = async (path, querystring) => {
     url: url.format({
       pathname: path,
       query: querystring,
-    })
+    }),
   };
 
-  debug(requestOptions);    
+  debug(requestOptions);
 
   try {
     const response = await axios(requestOptions);
     const data = await response.data;
     return data;
   } catch (err) {
-    throw new Error('The request failed to resolve.')
+    throw errorAndDebug('NETWORK_ERROR', 'The request failed to resolve.');
   }
 };
 
@@ -64,6 +65,8 @@ const fetchProperties = async (page = 1, pageSize = 50, propertyType, regionType
   return fetch('/estates', query);
 };
 
+/*
+TODO: fetch localities
 const fetchLocality = async (locality) => {
   const query = {
     tms: (new Date()).getTime(),
@@ -72,15 +75,26 @@ const fetchLocality = async (locality) => {
 
   return fetch('/suggest', query);
 };
+ */
 
-const fetchHouses = async (page, pageSize, regionType, regionId) => {
+const fetchHousesFromAPI = async (page, pageSize, regionType, regionId) => {
   const houseType = PROPERTY_TYPES.HOUSE;
+  return fetchProperties(page, pageSize, houseType, regionType, regionId);
+};
+
+const fetchFlatsFromAPI = async (page, pageSize, regionType, regionId) => {
+  const houseType = PROPERTY_TYPES.FLAT;
+  return fetchProperties(page, pageSize, houseType, regionType, regionId);
+};
+
+const fetchParcelsFromAPI = async (page, pageSize, regionType, regionId) => {
+  const houseType = PROPERTY_TYPES.PARCEL;
   return fetchProperties(page, pageSize, houseType, regionType, regionId);
 };
 
 module.exports = {
   PROPERTY_TYPES,
-  fetchLocality,
-  fetchProperties,
-  fetchHouses,
+  fetchHousesFromAPI,
+  fetchFlatsFromAPI,
+  fetchParcelsFromAPI,
 };

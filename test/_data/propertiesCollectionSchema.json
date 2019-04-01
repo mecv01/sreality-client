@@ -1,0 +1,138 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "array",
+    "title": "The Root Schema",
+    "additionalProperties": false,
+    "items": {
+      "$id": "#/items",
+      "type": "object",
+      "title": "The Items Schema",
+      "required": [
+        "propertyId",
+        "description",
+        "coordinates",
+        "isNew",
+        "locality",
+        "price",
+        "images",
+        "webLink"
+      ],
+      "properties": {
+        "propertyId": {
+          "$id": "#/items/properties/propertyId",
+          "type": "integer",
+          "title": "The Propertyid Schema",
+          "default": 0,
+          "examples": [
+            3317931612
+          ]
+        },
+        "description": {
+          "$id": "#/items/properties/description",
+          "type": "string",
+          "title": "The Description Schema",
+          "default": "",
+          "examples": [
+            "Prodej  vily 1 168 m², pozemek 780 m²"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "coordinates": {
+          "$id": "#/items/properties/coordinates",
+          "type": "object",
+          "title": "The Coordinates Schema",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "latitude": {
+              "$id": "#/items/properties/coordinates/properties/latitude",
+              "type": "number",
+              "title": "The Latitude Schema",
+              "default": 0.0,
+              "examples": [
+                50.07531
+              ]
+            },
+            "longitude": {
+              "$id": "#/items/properties/coordinates/properties/longitude",
+              "type": "number",
+              "title": "The Longitude Schema",
+              "default": 0.0,
+              "examples": [
+                14.405656
+              ]
+            }
+          }
+        },
+        "isNew": {
+          "$id": "#/items/properties/isNew",
+          "type": "boolean",
+          "title": "The Isnew Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "locality": {
+          "$id": "#/items/properties/locality",
+          "type": "string",
+          "title": "The Locality Schema",
+          "default": "",
+          "examples": [
+            "Praha 5 - část obce Smíchov"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "seller": {
+          "$id": "#/items/properties/seller",
+          "type": "string",
+          "title": "The Seller Schema",
+          "default": "",
+          "examples": [
+            "Y&T Luxury Property – luxusní byty Praha"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "price": {
+          "$id": "#/items/properties/price",
+          "type": "integer",
+          "title": "The Price Schema",
+          "default": 0,
+          "examples": [
+            64000000
+          ]
+        },
+        "images": {
+          "$id": "#/items/properties/images",
+          "type": "array",
+          "title": "The Images Schema",
+          "items": {
+            "$id": "#/items/properties/images/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "default": "",
+            "examples": [
+              "https://d18-a.sdn.szn.cz/d_18/c_img_E_BH/JWGODe.jpeg?fl=res,400,300,3|shr,,20|jpg,90",
+              "https://d18-a.sdn.szn.cz/d_18/c_img_F_BA/jPImry.jpeg?fl=res,400,300,3|shr,,20|jpg,90",
+              "https://d18-a.sdn.szn.cz/d_18/c_img_E_BH/BC6ODb.jpeg?fl=res,400,300,3|shr,,20|jpg,90"
+            ],
+            "pattern": "^(.*)$"
+          }
+        },
+        "webLink": {
+          "$id": "#/items/properties/webLink",
+          "type": "string",
+          "title": "The Weblink Schema",
+          "default": "",
+          "examples": [
+            "https://www.sreality.cz/detail/1/2/3/4/3317931612"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }

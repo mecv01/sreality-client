@@ -1,6 +1,5 @@
 const { path, map } = require('ramda');
-const debug = require('debug')('client:Mapping');
-const { mapping } = require('./../config');
+const { mapping } = require('../../config');
 
 const mapImage = image => path(mapping.image, image);
 
