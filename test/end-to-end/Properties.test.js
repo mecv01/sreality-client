@@ -15,15 +15,13 @@ test('get Houses', async () => {
 
 test('Houses by default should be equal to 50', async () => {
   const houses = await fetchHouses();
-  console.log(houses);
-  expect(houses.length).toBe(50)
+  expect(houses.length).toBe(50);
   expect(houses).toMatchSchema(schema);
 });
 
 test('Houses should be equal to the number of requested items', async () => {
   const houses = await fetchHouses(1, 5);
-  console.log(houses);
-  expect(houses.length).toBe(5)
+  expect(houses.length).toBe(5);
   expect(houses).toMatchSchema(schema);
 });
 
