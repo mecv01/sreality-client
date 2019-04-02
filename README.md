@@ -4,22 +4,55 @@ Javascript API client for the Sreality REST API.
 
 ## Interface
 
+### House Collection
+
 Parameters: 
 ```
-page = 1, pageSize = 50, regionType = 'municipality', regionId = 3468
+page = 1, pageSize = 5, regionType = 'municipality', regionId = 3468
 ```
 
 Example: 
+
 ```
-const { fetchHouses, fetchFlats, fetchParcels } = require('sreality-api-client');
-const houses = await fetchHouses(1, 50, 'municipality', 3468);
-const flats = await fetchFlats(1, 50, 'municipality', 3468);
-const parcels = await fetchParcels(1, 50, 'municipality', 3468);
+const { fetchHouses } = require('sreality-client');
 
-console.log(houses);
-console.log(flats);
-console.log(parcels);
+fetchHouses(1, 5, 'municipality', 3468).then((data) => {
+    console.log('My Houses...', data);
+});
+```
 
+### Flat Collection
+
+Parameters: 
+```
+page = 1, pageSize = 5, regionType = 'municipality', regionId = 3468
+```
+
+Example: 
+
+```
+const { fetchFlats } = require('sreality-client');
+
+fetchFlats(1, 5, 'municipality', 3468).then((data) => {
+    console.log('My Flats...', data);
+});
+```
+
+### Parcels Collection
+
+Parameters: 
+```
+page = 1, pageSize = 5, regionType = 'municipality', regionId = 3468
+```
+
+Example: 
+
+```
+const { fetchParcels } = require('sreality-client');
+
+fetchParcels(1, 5, 'municipality', 3468).then((data) => {
+    console.log('My Parcels...', data);
+});
 ```
 
 ## Build

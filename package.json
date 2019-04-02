@@ -1,11 +1,11 @@
 {
-  "name": "sreality-api-client",
+  "name": "sreality-client",
   "version": "0.0.1",
   "description": "API Client for sreality.cz",
   "main": "index.js",
   "scripts": {
     "start": "VERBOSE=true  DEBUG=api-client:* nodemon index.js",
-    "build": "rm -rf build && mkdir build && cp -r ./config ./build && cp -r ./src ./build && cp index.js package.json ./build && git log -n 1 >> ./build/deployInfo.txt",
+    "build": "rm -rf build && mkdir build && cp -r ./config ./build && cp -r ./src ./build && cp index.js package.json README.md ./build && git log -n 1 >> ./build/deployInfo.txt",
     "test": "npm run test:unit && npm run test:end-to-end",
     "test:unit": "jest ./test/unit/*.test.js",
     "test:end-to-end": "jest ./test/end-to-end/*.test.js",
