@@ -1,0 +1,60 @@
+{
+  "name": "sreality-client",
+  "version": "0.0.3",
+  "description": "API Client for sreality.cz",
+  "main": "index.js",
+  "scripts": {
+    "start": "VERBOSE=true  DEBUG=api-client:* nodemon index.js",
+    "build": "rm -rf build && mkdir build && cp -r ./config ./build && cp -r ./src ./build && cp index.js package.json README.md ./build && git log -n 1 >> ./build/deployInfo.txt",
+    "test": "npm run test:unit && npm run test:end-to-end",
+    "test:unit": "jest ./test/unit/*.test.js",
+    "test:end-to-end": "jest ./test/end-to-end/*.test.js",
+    "test:coverage": "jest --coverage ./test/unit/*.test.js ./test/end-to-end/*.test.js",
+    "eslint": "./node_modules/.bin/eslint --fix ./src ./config ./test ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mecv01/sreality-client.git"
+  },
+  "author": "Milton Carranza <mecv01@gmail.com>",
+  "contributors": [
+    "Jakub Kohoutek <jakub.kohoutek@gmail.com>"
+  ],
+  "keywords": [
+    "sreality",
+    "client",
+    "real estate",
+    "realtors",
+    "czech republic",
+    "Česká republika",
+    "czech republic",
+    "prague",
+    "praha",
+    "house",
+    "houses",
+    "flat",
+    "flats",
+    "parcel",
+    "parcels",
+    "api"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.5.0",
+    "jest-json-schema": "^2.0.2",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "debug": "^4.1.1",
+    "ramda": "^0.26.1"
+  }
+}
