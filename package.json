@@ -1,6 +1,6 @@
 {
   "name": "sreality-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "API Client for sreality.cz",
   "main": "index.js",
   "scripts": {
