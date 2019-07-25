@@ -1,2 +1,6 @@
 require('babel-polyfill');
-module.exports = require('./src/PropertyService');
+const { mergeLeft } = require('ramda')
+
+module.exports = mergeLeft(
+    require('./src/PropertyService'),
+    require('./src/PublicConstants'));
