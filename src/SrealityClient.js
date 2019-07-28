@@ -44,7 +44,7 @@ const fetch = async (path, querystring) => {
 const fetchProperties = async (page = 1, pageSize = 50, propertyType, regionType = 'municipality', regionId = 3468) => {
   let query = {
     tms: (new Date()).getTime(),
-    per_page: pageSize - 1,
+    per_page: pageSize,
     page,
   };
 
