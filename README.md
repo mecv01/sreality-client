@@ -79,6 +79,32 @@ npm run test:coverage
 npm run eslint
 ```
 
+## Publishing
+
+Create release branch from ```devel```
+```
+git checkout -b release/vX.X.X
+```
+
+Update: README, CHANGELOG
+
+Increment the version
+```
+npm version major|minor|patch
+```
+
+Build
+```
+npm run build
+```
+
+Publish
+```
+cd ./build
+npm login
+npm publish
+```
+
 ## Disclaimer
 
 This is not an official API. I am not affiliated with Sreality.cz in any way, and am not responsible for any damage that could be done with it.
