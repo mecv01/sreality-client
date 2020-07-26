@@ -13,9 +13,9 @@ test('get Houses', async () => {
   expect(houses).toMatchSchema(schema);
 });
 
-test('Houses by default should be equal to 50', async () => {
+test('Houses by default should be equal less or equal than 50', async () => {
   const houses = await fetchHouses();
-  expect(houses.length).toBe(50);
+  expect(houses.length).toBeLessThanOrEqual(50);
   expect(houses).toMatchSchema(schema);
 });
 
