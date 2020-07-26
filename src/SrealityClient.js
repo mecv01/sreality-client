@@ -79,17 +79,17 @@ const fetchLocality = async (locality) => {
 
 const fetchHousesFromAPI = async (page, pageSize, regionType, regionId) => {
   const type = PROPERTY_TYPES.HOUSE;
-  return fetchProperties(page, pageSize-1, type, regionType, regionId);
+  return fetchProperties(page, pageSize - 1, type, regionType, regionId);
 };
 
 const fetchFlatsFromAPI = async (page, pageSize, regionType, regionId) => {
   const type = PROPERTY_TYPES.FLAT;
-  return fetchProperties(page, pageSize-1, type, regionType, regionId);
+  return fetchProperties(page, pageSize - 1, type, regionType, regionId);
 };
 
 const fetchParcelsFromAPI = async (page, pageSize, regionType, regionId) => {
   const type = PROPERTY_TYPES.PARCEL;
-  return fetchProperties(page, pageSize-1, type, regionType, regionId);
+  return fetchProperties(page, pageSize - 1, type, regionType, regionId);
 };
 
 module.exports = {
